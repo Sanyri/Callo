@@ -1,0 +1,5 @@
+CALLO_SECRET=replace-with-a-long-random-secret
+APP_ORIGIN=http://localhost:5173
+TURN_URLS=
+TURN_USERNAME=
+TURN_CREDENTIAL=

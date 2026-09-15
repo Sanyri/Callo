@@ -1,0 +1,32 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "callo",
+  "workers_dev": true,
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-09-15",
+  "observability": { "enabled": true },
+  "assets": { "not_found_handling": "single-page-application", "binding": "ASSETS" },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "callo-db",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      { "name": "CALL_ROOM", "class_name": "CallRoom" },
+      { "name": "USER_SESSION", "class_name": "UserSession" },
+      { "name": "RATE_LIMITER", "class_name": "RateLimiter" }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["CallRoom", "UserSession", "RateLimiter"]
+    }
+  ],
+  "r2_buckets": [
+    { "binding": "PROFILE_IMAGES", "bucket_name": "callo-profile-images" }
+  ]
+}
